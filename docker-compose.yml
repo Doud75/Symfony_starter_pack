@@ -1,0 +1,42 @@
+version: '3.1'
+
+services:
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: container_back
+    ports:
+      - '8282:80'
+    restart: unless-stopped
+    volumes:
+      - ./:/var/www
+
+#mysql :
+  db:
+    image: 'mariadb'
+    container_name: container_db
+    ports:
+      - '3307'
+    restart: always
+    environment:
+      MYSQL_DATABASE: NAME
+      MYSQL_ROOT_PASSWORD: password
+    volumes:
+      - db-data:/var/lib/mysql
+
+
+#postgres :
+  #db:
+    #image: postgres:15
+    #container_name: db_riot
+    #restart: always
+    #environment:
+      #POSTGRES_DB: RIOT
+      #POSTGRES_USER: riot
+      #POSTGRES_PASSWORD: riot
+    #volumes:
+      #- db-data:/var/lib/postgresql/data
+
+volumes:
+  db-data:
