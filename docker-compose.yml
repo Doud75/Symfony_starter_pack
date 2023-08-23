@@ -29,12 +29,12 @@ services:
 #postgres :
   #db:
     #image: postgres:15
-    #container_name: db_riot
+    #container_name: container_db
     #restart: always
     #environment:
-      #POSTGRES_DB: RIOT
-      #POSTGRES_USER: riot
-      #POSTGRES_PASSWORD: riot
+      #POSTGRES_DB: NAME
+      #POSTGRES_USER: user
+      #POSTGRES_PASSWORD: password
     #volumes:
       #- db-data:/var/lib/postgresql/data
 
